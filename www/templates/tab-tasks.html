@@ -1,4 +1,11 @@
 <ion-view view-title="Tasks">
   <ion-content>
+      <ion-list show-delete="false" can-swipe="true">
+        <ion-item ng-repeat="task in data.tasks">
+            <h3>{{ task.title }}</h3>
+            <h6>{{ task.added }}</h6>
+             <ion-option-button ng-click="deleteTask()" class="button-assertive icon ion-trash-a"></ion-option-button>
+        </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
