@@ -2,9 +2,18 @@ angular.module('starter.controllers', [])
 
 
 .controller('Tasks',function($scope, Task) {
-    $scope.data = Task.data;
+    var data = {
+        newTask: ""
+    }
     
-
+     
+    function deleteTask() {
+        Task.deleteTask(data.newTask);   
+    }
+   
+    $scope.data = Task.data;
+    $scope.deleteTask = deleteTask;
+   
 })
 
 .controller('AddTask',function($scope, Task) {

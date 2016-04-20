@@ -10,14 +10,15 @@ angular.module('starter.services', [])
     data.tasks.push({title: title, added: new Date()});
   }
     
-  function deleteTask(title) {
-    data.taska.remove({title: title, added: new Date()});
-  }    
-    
+  function deleteTask(title){
+      data.tasks.pop({title: title, added: new Date()});
+  }
+        
     
     return {
         data: data,
-        addTask: addTask
+        addTask: addTask,
+        deleteTask: deleteTask
     };
 });
 
