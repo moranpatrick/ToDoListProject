@@ -1,7 +1,11 @@
 <ion-view view-title="Tasks">
   <ion-content>
+      <div class="bar bar-header item-input-inset">
+          <input type="text" placeholder=" Search" ng-model="search.title" 
+                  style="width:100%; padding-left:11px;" />
+        </div>
       <ion-list show-delete="false" can-swipe="true">
-        <ion-item ng-repeat="task in data.tasks">
+        <ion-item ng-repeat="task in data.tasks | filter:search">
             <h3>{{ task.title }}</h3>
             <h6>{{ task.added }}</h6>
              <ion-option-button ng-click="deleteTask()" class="button-assertive icon ion-trash-a"></ion-option-button>

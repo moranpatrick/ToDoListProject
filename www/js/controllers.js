@@ -4,9 +4,7 @@ angular.module('starter.controllers', [])
 .controller('Tasks',function($scope, Task) {
     $scope.data = Task.data;
     
-     function deleteTask() {
-        Task.deleteTask(data.newTask);
-    }
+
 })
 
 .controller('AddTask',function($scope, Task) {
