@@ -2,13 +2,10 @@ angular.module('starter.controllers', [])
 
 
 .controller('Tasks',function($scope, Task) {
-    var data = {
-        newTask: ""
-    }
-    
-     
-    function deleteTask() {
-        Task.deleteTask(data.newTask);   
+ 
+        
+    function deleteTask(taskName) {
+        Task.deleteTask(taskName);   
     }
    
     $scope.data = Task.data;
