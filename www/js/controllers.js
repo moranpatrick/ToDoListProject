@@ -1,12 +1,29 @@
 angular.module('starter.controllers', [])
 
 
-.controller('Tasks',function($scope, Task) {
+.controller('Tasks',function($scope, Task, $ionicActionSheet) {
  
         
     function deleteTask(taskName) {
-        Task.deleteTask(taskName);   
-    }
+        var showActionSheet = $ionicActionSheet.show({
+            destructiveText: 'Delete',
+            titleText: 'Are you Sure?',
+            
+            buttons: [
+                { text: 'Cancel' },  
+            ],
+
+            destructiveButtonClicked: function(index) {
+                Task.deleteTask(taskName); 
+                return true;
+            },
+            
+            buttonClicked: function(index) {
+                return true;
+            },
+           
+        });   
+    }//deleteTask()
    
     $scope.data = Task.data;
     $scope.deleteTask = deleteTask;
@@ -23,6 +40,11 @@ angular.module('starter.controllers', [])
         data.newTask = "";
     }
     
+    function cancel(){
+        
+    }
+    
     $scope.data = data;
     $scope.addTask = addTask;
-})
+});
+

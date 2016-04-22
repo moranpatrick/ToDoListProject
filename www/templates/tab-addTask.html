@@ -1,11 +1,12 @@
-<ion-view>
+<ion-view view-title="MY TO DO">
   <ion-content>
     <div class="list">
       <label class="item item-input">
         <input type="text" ng-model="data.newTask" placeholder="Enter your task here">
       </label>
     </div>
-      <button class="button button-small button-assertive">Cancel</button>
+    <div class = "addButtons">
       <button ng-click="addTask();" class="button button-block button-positive">Add</button>
+    </div>
   </ion-content>
 </ion-view>

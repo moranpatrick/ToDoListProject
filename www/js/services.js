@@ -6,7 +6,7 @@ angular.module('starter.services', [])
         tasks: []
     };
     
-  
+    
   function addTask(title) {
       /*If the user enters nothing then just return*/
       if(title == ""){
@@ -14,6 +14,7 @@ angular.module('starter.services', [])
       }
       else{
         data.tasks.push({title: title, added: new Date()});
+          
       }
   }
     
@@ -23,10 +24,13 @@ angular.module('starter.services', [])
           /*If taskName matches */
           if(data.tasks[i].title == taskName){
              data.tasks.splice(i, 1);
-          }
+          }   
       }
   }
-        
+    
+    
+    
+
     
     return {
         data: data,
