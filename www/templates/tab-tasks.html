@@ -1,15 +1,16 @@
-<ion-view view-title="MY TO DO">
+<ion-view view-title="MY TO DOS">
   <ion-content>
       <div class="bar bar-header item-input-inset">
-          <input type="text" placeholder=" Search" ng-model="search.title" style="width:100%; padding-left:11px;" />
+          <input type="text" placeholder=" Search" ng-model="search.title">
       </div>
       <ion-list show-delete="false" can-swipe="true">
-        <ion-item ng-repeat="task in data.tasks | filter:search">
-            <h3>{{ task.title }}</h3><!-- Display the task title-->
-            <h6>{{task.added | date: 'yyyy-MM-dd HH:mm'}}</h6><!-- Display the date using a filter to just display date and time in 24hr -->
+        
+        <ion-item ng-repeat="task in data.tasks | filter:search" ng-class="{complete: task.completed}" ng-click="task.completed = !task.completed">
+            <h3>{{ task.title}}</h3><!-- Display the task title-->
+            <h6>{{task.added | date: 'dd-MM-yyyy HH:mm'}}</h6><!-- Display the date using a filter to display date and time in 24hr -->
             <ion-option-button ng-click="deleteTask(task.title);" class="button-assertive icon ion-trash-a"></ion-option-button>
         </ion-item>
     </ion-list>
   </ion-content>
-</ion-view>
-<!-- -->
+</ion>
+

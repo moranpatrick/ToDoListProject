@@ -1,7 +1,7 @@
 angular.module('starter.services', [])
 
-
 .factory('Task', function() {
+    //object array called data to store our todo
     var data = {
         tasks: []
     };
@@ -13,29 +13,26 @@ angular.module('starter.services', [])
           return;
       }
       else{
-        data.tasks.push({title: title, added: new Date()});
-          
+        //otherwise add the title, date and set the completes task to false
+        data.tasks.push({title: title, added: new Date(), completed: false});  
       }
   }
     
   function deleteTask(taskName){
       /*loop around the data.tasks array*/
       for(var i = 0; i < data.tasks.length; i++){
-          /*If taskName matches */
+          /*If taskName matches remove the task from the array*/
           if(data.tasks[i].title == taskName){
              data.tasks.splice(i, 1);
           }   
       }
   }
-    
-    
-    
-
-    
-    return {
-        data: data,
-        addTask: addTask,
-        deleteTask: deleteTask
-    };
+      
+  return {
+    //return data and the two functions
+    data: data,
+    addTask: addTask,
+    deleteTask: deleteTask
+  };
 });
 

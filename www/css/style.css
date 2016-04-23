@@ -1,4 +1,23 @@
 /* Empty. Add your own CSS if you like */
 .nav{
-    background-color: beige;
+   	background-color: lightgray;
 }
+
+p {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-style: oblique;
+    font-size: 20px;
+    text-align: center;
+}
+
+.complete{
+	color: black;
+	text-decoration: line-through;
+}
+
+#wrapper {
+   margin: 150px auto;
+   width: 150px;
+   height: 150px;
+}
+
