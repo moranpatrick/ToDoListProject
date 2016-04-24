@@ -1,16 +1,22 @@
 <ion-view view-title="MY TO DOS">
   <ion-content>
+      <!--Input for the search filter-->
       <div class="bar bar-header item-input-inset">
           <input type="text" placeholder=" Search" ng-model="search.title">
       </div>
+      <!--Here is where we show the list of todos-->
       <ion-list show-delete="false" can-swipe="true">
-        
+        <!--I use the ng-class complete to set the task as completed once clicked-->
         <ion-item ng-repeat="task in data.tasks | filter:search" ng-class="{complete: task.completed}" ng-click="task.completed = !task.completed">
-            <h3>{{ task.title}}</h3><!-- Display the task title-->
-            <h6>{{task.added | date: 'dd-MM-yyyy HH:mm'}}</h6><!-- Display the date using a filter to display date and time in 24hr -->
+            <!--Two option buttons - one for edit and one for delete-->
+            <ion-option-button ng-click="editTask(task.title);" class="button-calm icon ion-edit"></ion-option-button>
             <ion-option-button ng-click="deleteTask(task.title);" class="button-assertive icon ion-trash-a"></ion-option-button>
+            <!--Display the title and the date in the list using ng-repeat-->
+            <h3>{{ task.title}}</h3>
+            <h6>{{task.added | date: 'dd-MM-yyyy HH:mm'}}</h6><!-- Display the date using a filter to display date and time in 24hr and european format -->
         </ion-item>
     </ion-list>
+
   </ion-content>
 </ion>
 

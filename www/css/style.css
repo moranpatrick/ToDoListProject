@@ -1,8 +1,4 @@
 /* Empty. Add your own CSS if you like */
-.nav{
-   	background-color: lightgray;
-}
-
 p {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-style: oblique;
@@ -15,9 +11,9 @@ p {
 	text-decoration: line-through;
 }
 
-#wrapper {
-   margin: 150px auto;
-   width: 150px;
-   height: 150px;
+.item-complex .item-content .complete{ 
+	background-color: lightgrey; 
 }
+
+
 
