@@ -1,11 +1,13 @@
 angular.module('starter.services', [])
 
 .factory('Task', function($ionicPopup, $ionicListDelegate) {
-    //object array called data to store our todo
-    var data = {
-        tasks: []
-    };
-    
+  //object array called data to store our todo
+  var data = {
+      tasks: []
+  };
+  
+  //Call the load function here
+  load();
     
   function addTask(title) {
       /*If the user enters nothing then just return*/
@@ -15,8 +17,27 @@ angular.module('starter.services', [])
       else{
         //otherwise add the title, date and set the completes task to false
         data.tasks.push({title: title, added: new Date(), completed: false});  
+        //save data to local storage every time we add a todo
+        save();
       }
   }
+
+  function save(){
+    //converts array to a string so it can be stored locally 
+    //I use angular.toJson instead of Json.stringify because of duplicate haskKeys being created
+    var stringData = angular.toJson(data);
+    window.localStorage["tasks"] = stringData;
+  }//save()
+
+  function load(){
+        //retrive the string data from local storage
+       var stringData = window.localStorage["tasks"];
+       
+       if(stringData != null){
+        //covert the string back intov the array and put into data array
+          data = angular.fromJson(stringData);
+       }
+  }//load()
     
   function deleteTask(taskName){
       /*loop around the data.tasks array*/
@@ -24,6 +45,7 @@ angular.module('starter.services', [])
           /*If taskName matches remove the task from the array using splice*/
           if(data.tasks[i].title == taskName){
              data.tasks.splice(i, 1);
+             save();
           }   
       }
   }
@@ -48,6 +70,7 @@ angular.module('starter.services', [])
                   //and add a new date stamp
                   data.tasks[i].title = res;
                   data.tasks[i].added = new Date();
+                  save();
                   //Close The option buttons using ionicListDelegate
                   $ionicListDelegate.closeOptionButtons();
                 }
